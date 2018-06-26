@@ -32,3 +32,11 @@ spec:
         name: node-web-app
         ports:
         - containerPort: 8080
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8080
+          initialDelaySeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
+          periodSeconds: 5
